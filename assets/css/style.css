@@ -114,6 +114,14 @@ footer {
   }
 }
 
+@media (max-width: 360px) {
+  .main-content {
+    width: 320px;
+    margin-top: 0;
+    border-radius: 0 0 20px 20px;
+  }
+}
+
 .wrapper {
     background: rgb(162, 180, 181);
     padding: 15px;
