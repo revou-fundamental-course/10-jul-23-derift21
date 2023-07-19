@@ -1,5 +1,5 @@
 function hitungBMI(){
-    event.preventDefault();
+    event.preventDefault(); //Mencegah terjadinya event bawaan dari sebuah DOM
     let form = document.querySelector("#form");
     let hasil = document.querySelector("#hasil");
     let jk = document.querySelector('input[name="sex"]:checked').value;
@@ -7,6 +7,7 @@ function hitungBMI(){
     var bb = document.getElementById('_bb').value;
     var tb = document.getElementById('_tb').value;
 
+    // Validasi form
     if(jk==""|| us==""||us==0||isNaN(us)) {
         alert("Usia dan jenis kelamin wajib diisi dengan benar");
     }else if(bb==""||bb==0||isNaN(bb)){
@@ -52,6 +53,7 @@ function hitungBMI(){
             penyakit = "Penyakit jantung, tekanan darah tinggi, diabetes tipe 2, masalah pernapasan, dan jenis kanker tertentu";
         }
 
+        //tampilkan hasil perhitungan
         form.style.display = 'none';
         hasil.style.display = 'block';
         
@@ -63,7 +65,7 @@ function hitungBMI(){
         document.querySelector("#pesan").innerHTML= psn;
         document.querySelector("#saran").innerHTML= saran;
 
-        if(penyakit!==""){            
+        if(penyakit!==""){ //jika terdapat penyakit tampilkan penyakit
             document.querySelector('#hasil .wrapper').style["box-shadow"] = 'rgb(93 50 50 / 25%) 0px 30px 60px -12px inset, rgb(255 0 0 / 30%) 0px 18px 36px -18px inset';
             document.querySelector(".wrapper.penyakit").style.display = 'block';
             document.querySelector("#penyakit").innerHTML= penyakit;
@@ -81,7 +83,7 @@ function hitungBMI(){
     }
 }
 
-function closeBMI(){
+function closeBMI(){ //tutup hasil perhitungan
     form.style.display = 'block';
     hasil.style.display = 'none';
 }
