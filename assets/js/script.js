@@ -11,6 +11,8 @@ function hitungBMI() {
   if (jk == "" || us == "" || us == 0 || isNaN(us)) {
     // alert("Usia dan jenis kelamin wajib diisi dengan benar");
     showModal("Usia dan jenis kelamin wajib diisi dengan benar");
+  } else if (us < 20) {
+    showModal("Kalkulator BMI ini hanya untuk orang dewasa minimal 20 tahun keatas");
   } else if (bb == "" || bb == 0 || isNaN(bb)) {
     showModal("Berat badan wajib diisi dengan benar");
   } else if (tb == "" || tb == 0 || isNaN(tb)) {
@@ -58,7 +60,7 @@ function hitungBMI() {
       ket = "Anda mengalami Obesitas";
       range = "Hasil BMI lebih dari 30";
       psn =
-        "Anda berada dalam kategori terlalu gemuk atau obesitas, Anda perlu berkonsultasi ke Dokter";
+        "Anda berada dalam kategori terlalu gemuk atau obesitas, Anda perlu berkonsultasi ke Dokter untuk penanganan lebih lanjut";
       saran =
         "Jika BMI Anda berada dalam kategori ini maka Anda dianjurkan untuk menurunkan berat badan hingga batas normal";
       penyakit =
@@ -69,7 +71,7 @@ function hitungBMI() {
     form.style.display = "none";
     hasil.style.display = "block";
 
-    document.querySelector("#person").innerHTML = "(" + jk + " " + us + " thn)";
+    document.querySelector("#person").innerHTML = "(" + jk + ", " + us + " thn)";
     document.querySelector("#bmi_status").innerHTML = stat_bb;
     document.querySelector("#bmi_score").innerHTML = bmi.toFixed(1);
     document.querySelector("#bmi_ket").innerHTML = ket;
