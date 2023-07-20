@@ -2,21 +2,28 @@ function hitungBMI() {
   event.preventDefault(); //Mencegah terjadinya event bawaan dari sebuah DOM
   let form = document.querySelector("#form");
   let hasil = document.querySelector("#hasil");
-  let jk = document.querySelector('input[name="sex"]:checked').value;
+  var jk = document.querySelector('input[name="sex"]:checked');    
   var us = document.getElementById("_us").value;
   var bb = document.getElementById("_bb").value;
   var tb = document.getElementById("_tb").value;
 
   // Validasi form
-  if (jk == "" || us == "" || us == 0 || isNaN(us)) {
-    // alert("Usia dan jenis kelamin wajib diisi dengan benar");
-    showModal("Usia dan jenis kelamin wajib diisi dengan benar");
+  if(jk != null) { //Mencegah null error radio button
+    jk = document.querySelector('input[name="sex"]:checked').value;
+  } else {
+    jk = "";
+  }
+
+  if (us == "" || us == 0 || isNaN(us)) {    
+    showModal("Usia wajib diisi dengan benar","_us");
   } else if (us < 20) {
-    showModal("Kalkulator BMI ini hanya untuk orang dewasa minimal 20 tahun keatas");
+    showModal("Kalkulator BMI ini hanya untuk orang dewasa minimal 20 tahun keatas","_us");    
+  }else if (jk == "") {
+    showModal("Jenis kelamin wajib diisi dengan benar","csex1");        
   } else if (bb == "" || bb == 0 || isNaN(bb)) {
-    showModal("Berat badan wajib diisi dengan benar");
+    showModal("Berat badan wajib diisi dengan benar","_bb");    
   } else if (tb == "" || tb == 0 || isNaN(tb)) {
-    showModal("Tinggi badan wajib diisi dengan benar");
+    showModal("Tinggi badan wajib diisi dengan benar","_tb");    
   } else {
     // Konversi cm to m
     meter = tb / 100;
@@ -100,17 +107,22 @@ function hitungBMI() {
   }
 }
 
-// Modal alert
+// Modal alert form
 let modal = document.getElementById("modal-alert");
 let modalText = document.querySelector("#modalText");
 let modalclose = document.querySelector(".close-modal");
 
-function showModal(message) {
+function showModal(message,inputid) {
   modal.style.display = "block";
-  modalText.innerHTML = message;
+  // Menampilkan pesan alert
+  modalText.innerHTML = message;  
+  // Memanggil id input yang error
+  ifocus = inputid;
 }
 modalclose.addEventListener("click", function () {
   modal.style.display = "none";
+  // Ketika alert ditutup membuat cursor berpindah fokus pada input yang error
+  document.getElementById(ifocus).focus();
 });
 
 function closeBMI() {
