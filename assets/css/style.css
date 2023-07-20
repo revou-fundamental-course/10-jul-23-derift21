@@ -1,5 +1,5 @@
 * {
-  transition: all .1s;
+  transition: all 0.1s;
 }
 html,
 body {
@@ -19,13 +19,13 @@ footer {
 }
 
 #form header h1 {
-    border-radius: 0 20px 20px 0;
-    background-color: cornflowerblue;
-    color: white;
-    margin-top: 0;
-    margin-left: -20px;
-    padding: 10px 20px;
-    width: fit-content;
+  border-radius: 0 20px 20px 0;
+  background-color: cornflowerblue;
+  color: white;
+  margin-top: 0;
+  margin-left: -20px;
+  padding: 10px 20px;
+  width: fit-content;
 }
 
 #hasil {
@@ -48,15 +48,21 @@ footer {
   margin: 0 10px;
   cursor: pointer;
 }
-#hasil .wrapper {  
+#hasil .wrapper {
   text-align: center;
   margin: 0;
 }
 #hasil .wrapper.penyakit {
   color: brown;
-  background: rgb(181 162 162);  
+  background: rgb(181 162 162);
   text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4), 0px 1px 2px red;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+#hasil .wrapper.penyakit h4 {
+  border-bottom: 2px solid;
+  border-radius: 100%;
+  margin-bottom: 5px;
+  padding-bottom: 8px;
 }
 #hasil #bmi_status {
   font-size: 1.5rem;
@@ -69,22 +75,26 @@ footer {
   font-size: 1rem;
 }
 .main-content {
-    border-radius: 10px 10px 20px 20px;
-    padding: 20px;
-    width: 600px;
-    margin: auto;    
-    margin-top: 25px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 10px 10px 20px 20px;
+  padding: 20px;
+  width: 600px;
+  margin: auto;
+  margin-top: 25px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-.main-content h1,h2 {
-    font-weight: 300;
+.main-content h1,
+h2 {
+  font-weight: 300;
 }
 .main-content ol {
-    padding-left: 25px;
+  padding-left: 25px;
 }
-.main-content p,li {
-    text-align: justify;
-    line-height: 1.5;
+.main-content p,
+li {
+  text-align: justify;
+  line-height: 1.5;
 }
 
 @media (min-width: 769px) {
@@ -95,7 +105,7 @@ footer {
 @media (max-width: 768px) {
   .main-content {
     padding: 20px 15px;
-  }  
+  }
 }
 
 @media (max-width: 640px) {
@@ -123,9 +133,9 @@ footer {
 }
 
 .wrapper {
-    background: rgb(162, 180, 181);
-    padding: 15px;
-    border-radius: 10px;
+  background: rgb(162, 180, 181);
+  padding: 15px;
+  border-radius: 10px;
 }
 .form-group {
   display: flex;
@@ -144,7 +154,7 @@ footer {
   margin-right: 10px;
 }
 .form-group label.right-inline {
-  text-align: right;  
+  text-align: right;
   padding-right: 8px;
   padding-left: 10px;
   width: auto;
@@ -157,6 +167,8 @@ footer {
   /* margin-right: 8px; */
   padding: 4px;
   margin-top: -4px;
+  border-radius: 8px;
+  border: 1px solid #ffdede;
 }
 .form-group .radio {
   display: inline-flex;
@@ -172,15 +184,20 @@ button {
   min-width: 100px;
   border: 0.1px solid transparent;
   cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.5s;
+}
+button:hover {
+  background-color: #ffffff85;
+  color: #393d39;
 }
 button.green {
   background-color: #27872f;
   color: #d9eedb;
-  transition: background-color 1.5s;
 }
 button.green:hover {
   background-color: #47c752;
-  color: #393d39;  
+  color: #393d39;
 }
 
 @media (max-width: 768px) {
@@ -191,12 +208,76 @@ button.green:hover {
     margin-top: 2px;
   }
   .form-group label.right-inline {
-    text-align: left;  
+    text-align: left;
     padding-right: 0;
-    padding-left: 0;   
+    padding-left: 0;
   }
 }
 
+/* Modal Content */
+/*   ALERT   */
+.modal-alert {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-alert_box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.modal-alert_content {
+  padding: 30px;
+  vertical-align: middle;
+}
+
+.modal-alert_wrapper {
+  max-width: 300px;
+  background-color: #ffffff;
+  display: block;
+  margin: 0 auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.modal-alert_inner {
+  padding: 20px;
+}
+.modal-alert_title {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 5px 0;
+}
+
+.modal-alert_buttons {
+  text-align: center;
+  border-top: 1px solid #dddddd;
+  height: 44px;
+}
+.modal-alert_button {
+  display: inline-block;
+  color: #3498db;
+  cursor: pointer;
+  font-weight: 600;
+  height: 44px;
+  font-size: 17px;
+  line-height: 44px;
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+}
+
 .m-0 {
-  margin: 0
+  margin: 0;
 }
