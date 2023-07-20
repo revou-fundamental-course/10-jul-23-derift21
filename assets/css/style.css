@@ -67,10 +67,18 @@ footer {
 }
 #hasil #bmi_status {
   font-size: 1.5rem;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 #hasil #bmi_score {
   font-size: 3rem;
+  font-weight: bold;
+  background-color: #666666;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgb(4 4 4 / 50%) 1px 1px 1px;
 }
 #hasil #bmi_ket {
   font-size: 1rem;
@@ -88,6 +96,7 @@ footer {
 .main-content h1,
 h2 {
   font-weight: 300;
+  font-family: "Poppins", sans-serif;
 }
 .main-content ol {
   padding-left: 25px;
