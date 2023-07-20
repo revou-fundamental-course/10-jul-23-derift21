@@ -20,9 +20,9 @@ function hitungBMI() {
     showModal("Kalkulator BMI ini hanya untuk orang dewasa minimal 20 tahun keatas","_us");    
   }else if (jk == "") {
     showModal("Jenis kelamin wajib diisi dengan benar","csex1");        
-  } else if (bb == "" || bb == 0 || isNaN(bb)) {
+  } else if (bb == "" || bb == 0 || tb < 0 || isNaN(bb)) {
     showModal("Berat badan wajib diisi dengan benar","_bb");    
-  } else if (tb == "" || tb == 0 || isNaN(tb)) {
+  } else if (tb == "" || tb == 0 || tb < 0 || isNaN(tb)) {
     showModal("Tinggi badan wajib diisi dengan benar","_tb");    
   } else {
     // Konversi cm to m
